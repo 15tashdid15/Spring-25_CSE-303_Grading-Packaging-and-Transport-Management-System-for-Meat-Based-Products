@@ -110,8 +110,12 @@
     <header class="flex justify-between items-center bg-white bg-opacity-90 shadow p-4">
       <h1 class="text-2xl font-bold">FinestMeatBD</h1>
       <div class="flex gap-4">
-        <button class="btn-green" onclick="openLoginModal()">Login User</button>
-        <button class="btn-green" onclick="openSignupModal()">Signup</button>
+        <!-- Update the buttons to redirect to the respective pages -->
+        <button class="btn-green"
+          onclick="window.location.href='/Spring-25_CSE-303_Grading-Packaging-and-Transport-Management-System-for-Meat-Based-Products/login.php'">Login
+          User</button>
+        <button class="btn-green"
+          onclick="window.location.href='/Spring-25_CSE-303_Grading-Packaging-and-Transport-Management-System-for-Meat-Based-Products/register.php'">Signup</button>
       </div>
     </header>
 
@@ -167,84 +171,8 @@
     </footer>
   </div>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal hidden" onclick="closeLoginModal()">
-    <div class="p-6 relative" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeLoginModal()">&times;</span>
-      <h2 class="text-xl font-semibold text-center mb-4">Login</h2>
-      <input type="text" id="username" placeholder="Username"
-        class="block w-full mb-4 p-2 border border-gray-300 rounded">
-      <input type="password" id="password" placeholder="Password"
-        class="block w-full mb-4 p-2 border border-gray-300 rounded">
-
-      <!-- Role Selection -->
-      <select id="role" class="block w-full mb-4 p-2 border border-gray-300 rounded">
-        <option value="admin">Admin</option>
-        <option value="retailer">Retailer</option>
-      </select>
-
-      <button class="btn-green w-full" onclick="login()">Login</button>
-    </div>
-  </div>
-
-  <!-- Signup Modal -->
-  <div id="signupModal" class="modal hidden" onclick="closeSignupModal()">
-    <div class="p-6 relative" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeSignupModal()">&times;</span>
-      <h2 class="text-xl font-semibold text-center mb-4">Signup</h2>
-      <input type="text" placeholder="Username" class="block w-full mb-4 p-2 border border-gray-300 rounded">
-      <input type="password" placeholder="Password" class="block w-full mb-4 p-2 border border-gray-300 rounded">
-      <button class="btn-green w-full">Signup</button>
-    </div>
-  </div>
-
-  <!-- Overlay for Blur Effect -->
-  <div id="overlay" class="blurred-bg hidden"></div>
-
   <script>
-    function openLoginModal() {
-      document.getElementById('loginModal').classList.remove('hidden');
-      document.getElementById('overlay').classList.remove('hidden');
-      document.getElementById('loginModal').classList.add('open');
-      document.getElementById('signupModal').classList.add('hidden');
-    }
-    function closeLoginModal() {
-      document.getElementById('loginModal').classList.add('hidden');
-      document.getElementById('overlay').classList.add('hidden');
-      document.getElementById('loginModal').classList.remove('open');
-    }
-    function openSignupModal() {
-      document.getElementById('signupModal').classList.remove('hidden');
-      document.getElementById('overlay').classList.remove('hidden');
-      document.getElementById('signupModal').classList.add('open');
-      document.getElementById('loginModal').classList.add('hidden');
-    }
-    function closeSignupModal() {
-      document.getElementById('signupModal').classList.add('hidden');
-      document.getElementById('overlay').classList.add('hidden');
-      document.getElementById('signupModal').classList.remove('open');
-    }
-
-    function login() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-      var role = document.getElementById('role').value;
-
-      // Temporary admin check
-      if (username === 'tashdid' && password === '123456' && role === 'admin') {
-        // Save admin role in localStorage
-        localStorage.setItem('role', 'admin');
-        window.location.href = 'admindash.html';  // Redirect to Admin Dashboard
-      } else if (username === 'ret' && password === '123456' && role === 'retailer') {
-        // Save retailer role in localStorage
-        localStorage.setItem('role', 'retailer');
-        window.location.href = '../index.php';  // Redirect to Retailer Dashboard
-      } else {
-        alert('Invalid username or password');
-      }
-    }
-
-    // Dynamic background image changer for the admin page
+    // Dynamic background image changer for the home page
     const images = [
       '../assets/meat1.jpg',
       '../assets/meat2V.jpg',

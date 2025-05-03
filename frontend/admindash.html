@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,13 @@
       background-attachment: fixed;
       margin: 0;
     }
+
     .card-shadow {
       background: rgba(255, 255, 255, 0.8);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(6px);
     }
+
     .btn-green {
       background-color: #32CD32;
       color: white;
@@ -30,9 +33,11 @@
       font-weight: 600;
       transition: background 0.3s;
     }
+
     .btn-green:hover {
       background-color: #28a745;
     }
+
     .sidebar {
       background-color: rgba(0, 0, 0, 0.7);
       color: white;
@@ -44,6 +49,7 @@
       z-index: 999;
       padding-top: 50px;
     }
+
     .sidebar a {
       display: block;
       color: white;
@@ -52,24 +58,29 @@
       margin-bottom: 10px;
       font-size: 16px;
     }
+
     .sidebar a:hover {
       background-color: #444;
     }
+
     .content {
       margin-left: 280px;
       padding: 20px;
     }
+
     .hamburger-menu {
       display: none;
       font-size: 30px;
       color: white;
       cursor: pointer;
     }
+
     .hamburger-menu:hover {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 10px;
       border-radius: 50%;
     }
+
     .card {
       background: #fff;
       padding: 20px;
@@ -78,6 +89,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="sidebar">
     <div class="hamburger-menu" onclick="toggleSidebar()">&#9776;</div>
@@ -85,7 +97,7 @@
     <a href="production.html">Production</a>
     <a href="packaging.html">Packaging</a>
     <a href="health.html">Check Product Health</a>
-    <a href="quality.html">Product Quality Trends</a>    
+    <a href="quality.html">Product Quality Trends</a>
     <a href="delivery.html">Deliveries</a>
     <a href="people.html">Users</a>
     <a href="../index.php">Retailer Informations</a>
@@ -98,7 +110,7 @@
       <h1 class="text-2xl font-bold">Admin Dashboard - FinestMeatBD</h1>
       <div class="flex gap-4">
         <button class="btn-green" onclick="logout()">Logout</button>
-        <button class="btn-green" onclick="window.location.href = 'index.html';">Inspect Homepage as Admin</button>
+        <button class="btn-green" onclick="window.location.href = 'index.html';">Inspect Homepage</button>
       </div>
     </header>
 
@@ -186,8 +198,9 @@
 
     function logout() {
       localStorage.removeItem('role');  // Clear role from localStorage
-      window.location.href = 'index.html';  // Redirect to homepage where login modal will appear
+      window.location.href = '/Spring-25_CSE-303_Grading-Packaging-and-Transport-Management-System-for-Meat-Based-Products/login.php';  // Redirect to homepage where login modal will appear
     }
   </script>
 </body>
+
 </html>
