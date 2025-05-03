@@ -30,36 +30,44 @@
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
-
 		<script>
-   $("#submitForm").click(function() {
-      alert("The Form has been Submitted.");
-   });
-</script>
+			// On form submission, alert the user that registration was successful
+			$("#submitForm").click(function() {
+				alert("The Form has been Submitted.");
+			});
+		</script>
   	</div>
 	<p>
   		Already a member? <a href="login.php" class="sign-in-link">Sign in</a>
 	</p>
 
   </form>
+
+  <?php
+    // If registration is successful, redirect to the login page
+    if (isset($_POST['reg_user'])) {
+        header("Location: login.php");
+        exit();
+    }
+  ?>
+
 </body>
 <script>
+			// Email validation script
 			function ValidateEmail(inputText)
-{
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-//alert("Valid email address!");
-//document.form1.text1.focus();
-//return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-document.form1.text1.focus();
-return false;
-}
-}
+			{
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				if(inputText.value.match(mailformat))
+				{
+					// Valid email format
+				}
+				else
+				{
+					alert("You have entered an invalid email address!");
+					document.RegForm.email.focus();
+					return false;
+				}
+			}
 		</script>
 
 </html>
