@@ -22,10 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $block = mysqli_real_escape_string($conn, $_POST['block']);
     $street_name = mysqli_real_escape_string($conn, $_POST['street_name']);
     $postal_code = mysqli_real_escape_string($conn, $_POST['postal_code']);
+    $country = mysqli_real_escape_string($conn, $_POST['country']);  // Adding country field
 
     // Update query
     $sql = "UPDATE retailers SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', 
-            warehouse = '$warehouse', road = '$road', block = '$block', street_name = '$street_name', postal_code = '$postal_code' 
+            warehouse = '$warehouse', road = '$road', block = '$block', street_name = '$street_name', postal_code = '$postal_code', country = '$country' 
             WHERE retailer_id = '$retailer_id'";
 
     if (mysqli_query($conn, $sql)) {
@@ -97,6 +98,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-4">
                 <label for="postal_code" class="block text-sm font-medium text-gray-700">Postal Code</label>
                 <input type="text" id="postal_code" name="postal_code" class="w-full p-2 border border-gray-300 rounded-md" value="<?= $row['postal_code']; ?>" required>
+            </div>
+
+            <!-- Add Country field -->
+            <div class="mb-4">
+                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                <input type="text" id="country" name="country" class="w-full p-2 border border-gray-300 rounded-md" value="<?= $row['country']; ?>" required>
             </div>
 
             <div class="mb-4">
